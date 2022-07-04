@@ -10,4 +10,5 @@
 *  ten_puzzle_solver.py テンパズルのメインクラス
 *  four_numbers_that_cannot_make_10.py  合計値10を作れない４桁の数
 *  four_numbers_that_is_difficult_to_make_10.py 合計値10を作ることが困難な（分数を使わないとできない）４桁の数
- 
+*  komatizan_target.py 小町算ソルバー
+*  komatizan_pattern 小町算のパターン探索
