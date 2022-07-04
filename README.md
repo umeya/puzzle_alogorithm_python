@@ -7,4 +7,7 @@
 ###### 第１章
 
 * number_puzzle_solver.py テンパズル探索本体のクラス
-*  ten_puzzle_solver.py テンパズルのメインクラス（GUI部分）
+*  ten_puzzle_solver.py テンパズルのメインクラス
+*  four_numbers_that_cannot_make_10.py  合計値10を作れない４桁の数
+*  four_numbers_that_is_difficult_to_make_10.py 合計値10を作ることが困難な（分数を使わないとできない）４桁の数
+ 
