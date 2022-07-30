@@ -17,4 +17,4 @@
 ###### 第２章
 * suudoku_solver.py 数独ソルバー<br>suudoku.py 数独問題の入力などの処理でここからソルバーを呼び出すメインクラス<br>sd2_3.txt テキスト（９１ページ）にある問題、<br>sd17hints.txt テキスト（１０２ページ）にある問題ですが、ここのソルバーでは時間がかかりすぎです。(^^;
 * fukumenzan_solver.py 覆面算ソルバー <br>fukumenzan.py 覆面算問題の問題作成などを処理する。ここからソルバーを呼び出すメインクラス。 <br> fukumenzan_dialog.py 問題の入力や編集を行う。<br>以下はテキストにあった問題のいくつか:<br>send_more_money.txt , fuQ1.txt , fuQ10.txt , fuQ13.txt , fuQ24.txt , fuQ26.txt , fuQ40.txt  
-* maze.py 迷路の作成とソルバー<br>
+* maze.py 迷路の作成とソルバー<br>maze2_65L.txtとmaze2_65R.txtはテキストの図２−６５（165ページ）の迷路
