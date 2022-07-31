@@ -7,6 +7,7 @@ maze editor
 import tkinter as tk
 from tkinter import filedialog
 import time
+from collections import deque
 
 class Maze(tk.Frame):
 	def __init__(self, master:tk.Tk):
@@ -228,10 +229,8 @@ class Maze(tk.Frame):
 					self.board[r][c] = -1
 				elif v == 'S':
 					self.start = (r, c)
-					# self.board[r][c] = -2
 				elif v == 'G':
 					self.goal = (r, c)
-		self.maze_path = {}
 
 
 	def compute_short_path_number(self):
@@ -248,24 +247,21 @@ class Maze(tk.Frame):
 	def solve(self):
 		self.comput_shortest_path_preparation()
 		DIR = [(1, 0), (0, 1), (-1, 0), (0, -1)]
-		nodes, shortest_path_finded, self.routes = [self.start], False, 0
-		while nodes != []:
-			next_nodes = []
-			self.routes += 1
-			for r, c in nodes:
-				for dr, dc in DIR:
-					next_r = r + dr
-					next_c = c + dc
-					if 0 <= next_r < self.maze_height and 0 <= next_c < self.maze_width:
-						if self.board[next_r][next_c] != 0 or self.maze_data[next_r][next_c] == 'S':
-							continue
-						else:
-							next_nodes.append((next_r, next_c))
-							self.board[next_r][next_c] = (r, c, self.routes)
-							if self.goal == (next_r, next_c):
-								shortest_path_finded = True
+		nodes, shortest_path_finded = deque([(*self.start, 0)]), False
+		while len(nodes) != 0:
+			r, c, routes = nodes.popleft()
+			for dr, dc in DIR:
+				next_r = r + dr
+				next_c = c + dc
+				if 0 <= next_r < self.maze_height and 0 <= next_c < self.maze_width:
+					if self.board[next_r][next_c] != 0 or self.maze_data[next_r][next_c] == 'S':
+						continue
+					else:
+						nodes.append((next_r, next_c, routes + 1))
+						self.board[next_r][next_c] = (r, c, routes + 1)
+						if self.goal == (next_r, next_c):
+							shortest_path_finded = True
 
-			nodes = [] + next_nodes
 		return shortest_path_finded
 
 	def draw_shortest_path(self):
